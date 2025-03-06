@@ -7,13 +7,15 @@ import { UserLoginComponent } from './User/user-login/user-login.component';
 import { StudentComponent } from './student/student.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { CoursComponent } from './cours/cours.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     StudentComponent,
+    CoursComponent,
      ],
   imports: [
     BrowserModule,

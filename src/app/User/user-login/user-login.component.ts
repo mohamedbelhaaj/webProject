@@ -46,6 +46,7 @@ onLogin(){
   //   alert('Worning credentials');
   // }
   this.router.navigate(['/student']);
+  this.router.navigate(['/cour']);
 
 }
 
