@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Gestion des Étudiants</h2>
+  
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Prénom</label>
+        <input type="text" class="form-control" formControlName="firstName">
+      </div>
+  
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" class="form-control" formControlName="lastName">
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+  
+      <div class="form-group">
+        <label>Date de naissance</label>
+        <input type="date" class="form-control" formControlName="dateOfBirth">
+      </div>
+  
+      <div class="form-group">
+        <label>Cours</label>
+        <input type="text" class="form-control" formControlName="course">
+      </div>
+  
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode ? 'Modifier' : 'Ajouter' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">Annuler</button>
+    </form>
+  
+    <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  
+    <h3 class="mt-4">Liste des Étudiants</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Date de naissance</th>
+          <th>Cours</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.dateOfBirth }}</td>
+          <td>{{ student.course }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editStudent(student)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
