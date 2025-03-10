@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './User/user-login/user-login.component';
 import {  StudentComponent } from './student/student.component';
 import { CoursComponent } from './cours/cours.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,16 @@ const routes: Routes = [
 {
   path:'cour',
   component:CoursComponent,
+},
+{
+  path:'',
+  redirectTo:'chat',
+  pathMatch:'full',
+},
+
+{
+  path:'chatbot',
+  component:ChatbotComponent,
 }
 
 ];

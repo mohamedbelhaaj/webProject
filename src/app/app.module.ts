@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CoursComponent } from './cours/cours.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CoursComponent } from './cours/cours.component';
     UserLoginComponent,
     StudentComponent,
     CoursComponent,
+    ChatbotComponent,
      ],
   imports: [
     BrowserModule,

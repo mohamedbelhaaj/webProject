@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StudentService } from '../service/student.service'
+import { StudentService } from '../../service/student.service'
 
 interface Student {
   id: number;

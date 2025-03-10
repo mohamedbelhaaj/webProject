@@ -47,7 +47,7 @@ onLogin(){
   // }
   this.router.navigate(['/student']);
   this.router.navigate(['/cour']);
-
+  this.router.navigate(['/chatbot']);
 }
 
 
