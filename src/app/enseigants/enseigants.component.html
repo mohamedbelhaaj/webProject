@@ -1,7 +1,7 @@
 <div class="container">
-    <h2>Gestion des Étudiants</h2>
+    <h2>Gestion des Enseigants</h2>
   
-    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="enseigantsForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Prénom</label>
         <input type="text" class="form-control" formControlName="firstName">
@@ -28,8 +28,8 @@
 
       </div>
       <div class="form-group">
-        <label>Photo de l'étudiant</label>
-        <input type="file" class="form-control" (change)="onFileChange($event)">
+        <label>Photo de l'Enseigants</label>
+        <input type="file" class="form-control" (change)="oneFileChange($event)">
       </div>
       
       <div *ngIf="previewUrl" class="mt-2">
@@ -49,25 +49,24 @@
     <table class="table table-bordered">
       <thead>
         <tr>
+           <th>id</th> 
           <th>Prénom</th>
           <th>Nom</th>
           <th>Email</th>
           <th>Date de naissance</th>
-          <th>Cours</th>
-            <th>image</th>
+          <th>image</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students">
-          <td>{{ student.firstName }}</td>
-          <td>{{ student.lastName }}</td>
-          <td>{{ student.email }}</td>
-          <td>{{ student.dateOfBirth }}</td>
-          <td>{{ student.course }}</td>
-          <td>{{student.image}}</td>
+        <tr *ngFor="let student of enseigants">
+          <td>{{ enseigants.firstName }}</td>
+          <td>{{ enseigants.lastName }}</td>
+          <td>{{ enseigants.email }}</td>
+          <td>{{ enseigants.dateOfBirth }}</td>
+          <td>{{enseigants.image}}</td>
           <td>
-            <button class="btn btn-warning btn-sm" (click)="editStudent(student)">Modifier</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">Supprimer</button>
+            <button class="btn btn-warning btn-sm" (click)="enseigants(enseigant)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteEnseigants(enseigants.id)">Supprimer</button>
           </td>
         </tr>
       </tbody>

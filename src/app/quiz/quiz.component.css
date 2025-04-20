@@ -1,0 +1,20 @@
+.quiz-container {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 20px;
+}
+
+.selected {
+  background-color: #4caf50;
+  color: white;
+}

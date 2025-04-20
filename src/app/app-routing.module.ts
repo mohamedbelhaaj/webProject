@@ -4,6 +4,10 @@ import { UserLoginComponent } from './User/user-login/user-login.component';
 import {  StudentComponent } from './student/student.component';
 import { CoursComponent } from './cours/cours.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuestionComponent } from './question/question.component';
+import { HomeComponent } from './home/home.component';
+import { EnseigantsComponent } from './enseigants/enseigants.component';
 
 const routes: Routes = [
   {
@@ -18,11 +22,9 @@ const routes: Routes = [
   
 
   },
-  {
-    path:'',
-    redirectTo:'student',
-    pathMatch:'full'
-  },
+  
+    {path:'',redirectTo:'home',  pathMatch:'full'},
+    {path:'home', component:HomeComponent},
   {
     path:'student',
     component:StudentComponent,
@@ -31,6 +33,10 @@ const routes: Routes = [
   path:'',
   redirectTo:'cour',
   pathMatch:'full'
+  },
+  {
+    path:'enseigant',
+    component:EnseigantsComponent,
   },
 {
   path:'cour',
@@ -45,8 +51,17 @@ const routes: Routes = [
 {
   path:'chatbot',
   component:ChatbotComponent,
-}
+},
+{
+  path:'quiz',
+  component:QuizComponent,
+},
+{
+  path:'question',
+  component:QuestionComponent,
+},
 
+  
 ];
 
 @NgModule({

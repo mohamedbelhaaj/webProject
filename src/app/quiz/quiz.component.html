@@ -1,0 +1,17 @@
+<div class="quiz-container" *ngIf="!quizCompleted; else resultTemplate">
+  <h2>Question {{ currentQuestionIndex + 1 }} sur {{ totalQuestions }}</h2>
+
+  <app-question
+    [question]="currentQuestion"
+    [selectedAnswer]="selectedAnswer"
+    (answerSelected)="onAnswerSelected($event)">
+  </app-question>
+
+  <button [disabled]="!selectedAnswer" (click)="submitAnswer()">Valider</button>
+</div>
+
+<ng-template #resultTemplate>
+  <h2>Quiz terminé !</h2>
+  <p>Score : {{ score }} / {{ totalQuestions }}</p>
+  <button (click)="restartQuiz()">Recommencer</button>
+</ng-template>

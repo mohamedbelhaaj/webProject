@@ -1,0 +1,68 @@
+/* Toolbar */
+mat-toolbar {
+    background-color: #3f51b5; /* Couleur principale */
+    color: white;
+    padding: 0 16px;
+  }
+  
+  /* Aligner le contenu de la barre */
+  mat-toolbar-row.justify {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Bouton menu (burger) */
+  button[mat-icon-button] {
+    margin-right: 16px;
+    color: white;
+  }
+  
+  /* Section utilisateur à droite */
+  .row.ml-auto {
+    margin-left: auto !important;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Bouton utilisateur */
+  .user {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Image de l'utilisateur */
+  .user-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+    background-color: white;
+  }
+  
+  /* Icône de menu déroulant */
+  .user mat-icon {
+    margin-left: 4px;
+  }
+  
+  /* Menu déroulant */
+  mat-menu {
+    min-width: 150px;
+  }
+  
+  mat-menu button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+  }
+  
+  mat-menu mat-icon {
+    margin-right: 8px;
+  }
+  

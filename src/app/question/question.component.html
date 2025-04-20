@@ -1,0 +1,14 @@
+<div *ngIf="question">
+    <p>{{ question.question }}</p>
+  
+    <ul>
+      <li *ngFor="let option of question.options">
+        <button
+          [ngClass]="{ selected: selectedAnswer === option }"
+          (click)="selectOption(option)">
+          {{ option }}
+        </button>
+      </li>
+    </ul>
+  </div>
+  

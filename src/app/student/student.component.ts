@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StudentService } from '../../service/student.service'
+import { StudentService } from '../service/student.service'
 
 interface Student {
   id: number;
@@ -9,6 +9,8 @@ interface Student {
   email: string;
   dateOfBirth: string;
   course: string;
+  previewUrl: string ; // ou null ou undefined selon l'usage
+ image : File;
 
 }
 
@@ -19,12 +21,16 @@ interface Student {
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+onFileChange($event: Event) {
+throw new Error('Method not implemented.');
+}
   studentForm!: FormGroup;
   students: Student[] = [];
   successMessage: string = '';
   errorMessage: string = '';
   isEditMode: boolean = false;
   editingStudentId?: number;
+previewUrl: any;
 
   constructor(private fb: FormBuilder, private studentService: StudentService) {}
 
@@ -39,7 +45,8 @@ export class StudentComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', Validators.required],
-      course: ['', Validators.required]
+      course: ['', Validators.required],
+
     });
   }
 

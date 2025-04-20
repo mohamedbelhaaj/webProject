@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
   title = 'project';
+  sideBarOpen= true;
+  ngOInit(){}
+    sideBarToggler(){
+      this.sideBarOpen=!this.sideBarOpen;
+    
+  }
   
 }
