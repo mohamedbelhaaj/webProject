@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './sidenav.component.css'
 })
 export class SidenavComponent {
+// dans component.ts
+imagePath: string = 'assets/images/user.png';
 
 }

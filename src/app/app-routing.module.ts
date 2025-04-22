@@ -8,6 +8,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './question/question.component';
 import { HomeComponent } from './home/home.component';
 import { EnseigantsComponent } from './enseigants/enseigants.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
   
 
   },
-  
+    {path:'dashboard', component:DashboardComponent},
     {path:'',redirectTo:'home',  pathMatch:'full'},
     {path:'home', component:HomeComponent},
   {

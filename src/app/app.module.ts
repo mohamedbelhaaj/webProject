@@ -21,6 +21,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { EnseigantsComponent } from './enseigants/enseigants.component';
 

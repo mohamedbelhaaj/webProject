@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent {
 
   ngOnInit(): void {}
   toggleSidebar(){
-    this.toggleSidebarForMe.emit(); 
+    this.toggleSidebarForMe.emit();
     
   }
 
