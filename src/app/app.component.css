@@ -1,37 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer {
+  width: 260px;
+}
 mat-drawer-container {
-    height: 100vh;
-  }
-  
-  mat-drawer {
-    width: 250px;
-    background-color: #f5f5f5;
-    padding: 16px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  }
-  
-  mat-drawer-content {
-    padding: 16px;
-    background-color: #fff;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  app-header {
-    height: 64px;
-    background-color: #3f51b5;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 16px;
-  }
-  
-  router-outlet {
-    flex: 1;
-    padding: 16px;
-  }
-  
+  height: 100%;
+}
+
+mat-drawer {
+  background: gray;
+}

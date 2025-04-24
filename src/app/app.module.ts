@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { EnseigantsComponent } from './enseigants/enseigants.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { EnseigantsComponent } from './enseigants/enseigants.component';
     MatToolbarModule,
     MatButtonModule,
     MatMenuModule,
+    MatDividerModule,
 
 
 
