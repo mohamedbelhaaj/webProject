@@ -7,16 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent  implements OnInit{
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
   title = 'project';
-  sideBarOpen= true;
   
-  ngOnInit(): void {}
+  }
+  
   
 
-  
-    sideBarToggler(){
-      this.sideBarOpen=!this.sideBarOpen;
-    
-  }
-}
 

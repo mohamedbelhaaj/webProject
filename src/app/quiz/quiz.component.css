@@ -1,20 +1,203 @@
+/* Conteneur principal du quiz */
 .quiz-container {
-  max-width: 500px;
-  margin: auto;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-ul {
+/* Titre du quiz */
+.quiz-title {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Question actuelle */
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #34495e;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0 1rem;
+}
+
+/* Conteneur des options */
+.options-container {
+  margin: 2rem 0;
+}
+
+/* Liste des options */
+.options-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-button {
-  margin: 5px;
-  padding: 10px 20px;
+/* Style de base des options */
+.option-btn {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 5px 0;
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  color: #495057;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 
-.selected {
+/* Style au survol */
+.option-btn:hover {
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+  transform: translateY(-2px);
+}
+
+/* Option sélectionnée */
+.option-btn.selected {
   background-color: #4caf50;
   color: white;
+  border-color: #4caf50;
+  font-weight: 500;
+}
+
+/* Feedback pour bonne réponse */
+.option-btn.correct {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+/* Feedback pour mauvaise réponse */
+.option-btn.incorrect {
+  background-color: #f44336;
+  color: white;
+  border-color: #f44336;
+}
+
+/* Boutons de navigation */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.nav-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Bouton précédent */
+.prev-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.prev-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Bouton suivant */
+.next-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.next-btn:hover {
+  background-color: #0069d9;
+}
+
+/* Bouton soumettre */
+.submit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #218838;
+}
+
+/* Compteur de questions */
+.question-counter {
+  margin-top: 1.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Barre de progression */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.4s ease;
+}
+
+/* Style pour les résultats */
+.results-container {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.results-title {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.score {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin: 1rem 0;
+}
+
+/* Icônes pour les options */
+.option-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .quiz-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-btn {
+    width: 100%;
+  }
 }

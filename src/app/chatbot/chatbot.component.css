@@ -1,121 +1,236 @@
-/* Conteneur principal du chatbot en plein écran */
+/* Conteneur principal avec sidebar et chat */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  z-index: 100;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Section */
+.sidebar-header {
+  padding: 20px;
+  background-color: #1a252f;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Navigation Items */
+.sidebar-menu {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 5px 15px;
+  border-radius: 6px;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ecf0f1;
+}
+
+.sidebar-item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.sidebar-icon {
+  margin-right: 15px;
+  width: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Chat Container - Adapté pour la sidebar */
 .chat-container {
-    position: fixed; /* Permet d'occuper tout l'écran */
-    top: 0;
-    left: 0;
-    width: 100vw; /* 100% de la largeur de l'écran */
-    height: 100vh; /* 100% de la hauteur de l'écran */
-    display: flex;
-    flex-direction: column;
-    background-color: #f8f9fa;
-    font-family: 'Arial', sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  position: relative;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.menu-toggle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+
+.messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #ffffff;
+  margin-bottom: 70px; /* Espace pour l'input */
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 18px 18px 4px 18px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  line-height: 1.4;
+}
+
+.bot {
+  align-self: flex-start;
+  background-color: #e9ecef;
+  color: #333;
+  padding: 12px 18px;
+  border-radius: 18px 18px 18px 4px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  line-height: 1.4;
+}
+
+.input-container {
+  display: flex;
+  padding: 15px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 280px);
+  right: 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+}
+
+input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+input:focus {
+  border: 1px solid #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+button.send-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+button.send-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  /* En-tête du chatbot */
-  .chat-header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Zone des messages */
-  .messages {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #ffffff;
-  }
-  
-  /* Style des messages utilisateur */
-  .user {
-    align-self: flex-end;
-    background-color: #007bff;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 20px;
-    max-width: 75%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  /* Style des messages du bot */
-  .bot {
-    align-self: flex-start;
-    background-color: #e9ecef;
-    color: #333;
-    padding: 12px 18px;
-    border-radius: 20px;
-    max-width: 75%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  /* Barre de saisie fixée en bas */
-  .input-container {
-    display: flex;
-    padding: 15px;
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .sidebar {
     position: fixed;
-    bottom: 0;
-    width: 100%;
     left: 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
   }
   
-  input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    outline: none;
-    font-size: 16px;
-    transition: border 0.3s;
+  .sidebar.open {
+    transform: translateX(0);
   }
   
-  input:focus {
-    border: 1px solid #007bff;
+  .menu-toggle {
+    display: block;
   }
   
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-left: 10px;
-    font-size: 18px;
-    transition: background-color 0.3s, transform 0.2s;
+  .input-container {
+    width: 100%;
   }
   
-  button:hover {
-    background-color: #0056b3;
+  .user, .bot {
+    max-width: 90%;
+  }
+}
+
+/* Animation pour la sidebar */
+.sidebar {
+  transform: translateX(0);
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-100%);
   }
   
-  button:active {
-    transform: scale(0.95);
+  .sidebar.open {
+    transform: translateX(0);
   }
-  
-  /* Animation d'apparition des messages */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(5px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Responsive (déjà en plein écran, donc pas besoin de media queries) */
-  
+}

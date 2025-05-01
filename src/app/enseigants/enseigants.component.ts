@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { enseigantService } from '../service/enseigant.service';
+import { BooleanInput } from '@angular/cdk/coercion';
 interface enseigants {
   id: number;
   firstName: string;
@@ -19,11 +20,16 @@ interface enseigants {
   styleUrl: './enseigants.component.css'
 })
 export class EnseigantsComponent implements OnInit {
+mati: any;
+sideBarToggler() {
+throw new Error('Method not implemented.');
+}
+sideBarOpen: BooleanInput;
 deleteEnseigants(arg0: any) {
 throw new Error('Method not implemented.');
 }
   editingenseigantId: undefined;
-  studentForm: any;
+  enseigantForm: any;
 enseigants: any;
 oneFileChange($event: Event){
 
@@ -33,14 +39,14 @@ enseigant : enseigants[] = [];
 successMessage: string = '';
   errorMessage: string = '';
   isEditMode: boolean = false;
-  editingStudentId?: number;
+  editingEnseigantId?: number;
 previewUrl: any;
 
   constructor(private fb: FormBuilder, private enseigantService: enseigantService) {}
 
   ngOnInit() {
     this.initForm();
-    this.loadStudents();
+    this.loadenseigants();
   }
 
   initForm() {
@@ -54,7 +60,7 @@ previewUrl: any;
     });
   }
 
-  loadStudents() {
+  loadEnseigants() {
     this.enseigantService.getEnseigant().subscribe({
       next: (data: enseigants[]) => {
         this.enseigant = data;
@@ -81,7 +87,7 @@ previewUrl: any;
           this.successMessage = 'Étudiant mis à jour avec succès !';
           this.errorMessage = '';
           this.resetForm();
-          this.loadStudents();
+          this.loadenseigants();
         },
         error: (err: any) => {
           console.error('Erreur API :', err);
@@ -96,7 +102,7 @@ previewUrl: any;
           this.successMessage = 'Étudiant ajouté avec succès !';
           this.errorMessage = '';
           this.resetForm();
-          this.loadStudents();
+          this.loadEnseigants();
         },
         error: (err: any) => {
           console.error('Erreur API :', err);
@@ -107,13 +113,13 @@ previewUrl: any;
     }
   }
 
-  editStudent(enseigant: enseigants) {
+  editEnseigant(enseigant: enseigants) {
     this.isEditMode = true;
-    this.editingStudentId = enseigant.id;
+    this.editingEnseigantId = enseigant.id;
     this.enseigantsForm.patchValue(enseigant);
   }
 
-  //deleteStudent(id: number) {
+  //deleteEnseigants(id: number) {
    // if (confirm("Voulez-vous vraiment supprimer cet étudiant ?")) {
      // this.enseigantService.deleteEnseigant(id).subscribe({
        // next: () => {
@@ -136,7 +142,7 @@ previewUrl: any;
   resetForm() {
     this.enseigantsForm.reset();
     this.isEditMode = false;
-    this.editingStudentId = undefined;
+    this.editingEnseigantId = undefined;
   }
 
 }

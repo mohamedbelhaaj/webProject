@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
  })
  export class enseigantService {
+   deleteEnseigant(id: number) {
+     throw new Error('Method not implemented.');
+   }
    addenseigant(value: any) {
      throw new Error('Method not implemented.');
    }

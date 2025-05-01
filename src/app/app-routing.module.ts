@@ -6,61 +6,29 @@ import { CoursComponent } from './cours/cours.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './question/question.component';
-import { HomeComponent } from './home/home.component';
 import { EnseigantsComponent } from './enseigants/enseigants.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  {
-    path:'',
-    redirectTo:'login',
-    pathMatch:'full',
-  },
-  
-  {
-    path:'user-login',
-    component:UserLoginComponent,
-  
+  {path:'layout' , component:LayoutComponent },
 
-  },
-    {path:'dashboard', component:DashboardComponent},
-    {path:'',redirectTo:'home',  pathMatch:'full'},
-    {path:'home', component:HomeComponent},
-  {
-    path:'student',
-    component:StudentComponent,
-  },
-  {
-  path:'',
-  redirectTo:'cour',
-  pathMatch:'full'
-  },
-  {
-    path:'enseigant',
-    component:EnseigantsComponent,
-  },
-{
-  path:'cour',
-  component:CoursComponent,
-},
-{
-  path:'',
-  redirectTo:'chat',
-  pathMatch:'full',
-},
+  {path: 'user-login' ,  component:UserLoginComponent},
+  {path:'user-login', redirectTo:'user-login' , pathMatch:'full'},
+  {path:'dashboard', component:DashboardComponent},
 
-{
-  path:'chatbot',
-  component:ChatbotComponent,
-},
-{
-  path:'quiz',
-  component:QuizComponent,
-},
-{
-  path:'question',
-  component:QuestionComponent,
-},
+
+  {path:'student',component:StudentComponent},
+
+
+
+
+
+  {path:'enseigant',component:EnseigantsComponent},
+  {path:'cour',component:CoursComponent},
+  {path:'chatbot',component:ChatbotComponent},
+  {path:'quiz',component:QuizComponent},
+  {path:'question',component:QuestionComponent}
 
   
 ];

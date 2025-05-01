@@ -25,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { EnseigantsComponent } from './enseigants/enseigants.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
@@ -37,8 +38,10 @@ import { MatDividerModule } from '@angular/material/divider';
     ResultatComponent,
     HeaderComponent,
     SidenavComponent,
-    HomeComponent,
     EnseigantsComponent,
+    LayoutComponent,
+    HomeComponent,
+
     
   
      ],
@@ -54,6 +57,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatMenuModule,
     MatDividerModule,
+    QuizComponent,
 
 
 
@@ -65,7 +69,7 @@ import { MatDividerModule } from '@angular/material/divider';
   
     
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
 
     
 

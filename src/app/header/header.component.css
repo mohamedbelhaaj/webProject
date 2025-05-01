@@ -1,37 +1,100 @@
+/* Style général de la toolbar */
 mat-toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+  padding: 0 16px;
+}
+
+/* Style de la ligne de la toolbar */
+mat-toolbar-row.justify {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Style du bouton menu */
+button[mat-icon-button] {
+  color: #555555;
+  transition: all 0.3s ease;
+}
+
+button[mat-icon-button]:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: #000000;
+}
+
+/* Style de la section utilisateur */
+.row.mr-2.ml-auto {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 }
 
 ul {
-  li {
-    list-style: none;
-  }
-}
-button {
-  outline: none;
-  border: 0;
-  background: transparent;
-}
-.user {
-  font-size: 14px;
-}
-mat-toolbar {
-  background: #f7f7f7;
-}
-.user-image {
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  &-icon {
-    height: 18px;
-    font-size: 16px;
-  }
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-::ng-deep {
-  .mat-menu-content {
-    width: 160px;
-  }
+/* Style du bouton utilisateur */
+button.user {
+  color: #333333;
+  font-weight: 500;
+  padding: 0 8px;
+  text-transform: capitalize;
+}
+
+button.user:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Style de l'image utilisateur */
+.user-image {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Style du menu déroulant */
+mat-menu {
+  margin-top: 8px;
+}
+
+button[mat-menu-item] {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #333333;
+}
+
+button[mat-menu-item] mat-icon {
+  margin-right: 16px;
+  color: #555555;
+  font-size: 20px;
+}
+
+/* Animation pour le menu */
+.mat-menu-panel {
+  animation: fadeIn 0.2s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style spécifique pour l'icône de flèche */
+mat-icon {
+  font-size: 18px;
+  margin-left: 4px;
+  color: #666666;
 }

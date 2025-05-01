@@ -1,21 +1,16 @@
 <mat-nav-list>
     <div class="logo py-4">
         <img src="../../assets/images/0c629e70-f2a9-4d8c-8fb9-e595a1d7b-10.png" alt="Company Logo" />
-
     </div>
     
     <mat-divider></mat-divider>
     <h2 matSubheader class="mt-2">APPLICATIONS</h2>
   
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
-      <mat-icon>home</mat-icon> Home
-    </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
-    </a>
-    <a mat-list-item onclick="cours"> <mat-icon>edit</mat-icon>Cours</a>
-    <a mat-list-item> <mat-icon>edit</mat-icon> student </a>
-    <a mat-list-item> <mat-icon>edit</mat-icon> chatbot </a>
-    <a mat-list-item> <mat-icon>edit</mat-icon> Enseigants </a>
-    <a mat-list-item> <mat-icon>edit</mat-icon> Quiz </a>
-
-  </mat-nav-list>
+    <button *ngFor="let item of navItems" 
+            mat-list-item 
+            [routerLink]="item.path" 
+            routerLinkActive="active">
+        <mat-icon>{{item.icon}}</mat-icon>
+        <span>{{item.label}}</span>
+    </button>
+</mat-nav-list>

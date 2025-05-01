@@ -1,17 +1,45 @@
-<div class="quiz-container" *ngIf="!quizCompleted; else resultTemplate">
-  <h2>Question {{ currentQuestionIndex + 1 }} sur {{ totalQuestions }}</h2>
-
-  <app-question
-    [question]="currentQuestion"
-    [selectedAnswer]="selectedAnswer"
-    (answerSelected)="onAnswerSelected($event)">
-  </app-question>
-
-  <button [disabled]="!selectedAnswer" (click)="submitAnswer()">Valider</button>
+<div class="quiz-container">
+  <div class="progress-container">
+    <div class="progress-bar" style="width: 30%"></div>
+  </div>
+  
+  <h1 class="quiz-title">Quiz sur le Développement Web</h1>
+  
+  <div class="question">Quelle balise HTML est utilisée pour créer un lien hypertexte ?</div>
+  
+  <div class="options-container">
+    <ul class="options-list">
+      <li>
+        <button class="option-btn">
+          <span class="option-icon">➤</span>
+          <span>&lt;a&gt;</span>
+        </button>
+      </li>
+      <li>
+        <button class="option-btn selected">
+          <span class="option-icon">➤</span>
+          <span>&lt;link&gt;</span>
+        </button>
+      </li>
+      <li>
+        <button class="option-btn">
+          <span class="option-icon">➤</span>
+          <span>&lt;href&gt;</span>
+        </button>
+      </li>
+      <li>
+        <button class="option-btn">
+          <span class="option-icon">➤</span>
+          <span>&lt;url&gt;</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="navigation-buttons">
+    <button class="nav-btn prev-btn">Précédent</button>
+    <button class="nav-btn next-btn">Suivant</button>
+  </div>
+  
+  <div class="question-counter">Question 3 sur 10</div>
 </div>
-
-<ng-template #resultTemplate>
-  <h2>Quiz terminé !</h2>
-  <p>Score : {{ score }} / {{ totalQuestions }}</p>
-  <button (click)="restartQuiz()">Recommencer</button>
-</ng-template>

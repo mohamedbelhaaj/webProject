@@ -14,6 +14,7 @@
 				</form>
 			</div>
 
+
 			<div class="login">
 				<form>
 					<label for="chk" aria-hidden="true">Login</label>
@@ -22,6 +23,22 @@
 					<button (click)="onLogin()" >Login</button>
 				</form>
 			</div>
+			<div class="forgot-password-container">
+				<h2>Mot de passe oublié</h2>
+				<form (ngSubmit)="resetPassword()">
+				  <div class="form-group">
+					<label>Email</label>
+					<input type="email" [(ngModel)]="email" name="email" required>
+				  </div>
+				  <button type="submit" [disabled]="isLoading">
+					<span *ngIf="!isLoading">Envoyer le lien</span>
+					<span *ngIf="isLoading">Envoi en cours...</span>
+				  </button>
+				</form>
+				<p *ngIf="message">{{message}}</p>
+				<a routerLink="/login">Retour à la connexion</a>
+
+			  </div>
 	</div>
 </body>
 </html>

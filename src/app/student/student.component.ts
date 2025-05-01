@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from '../service/student.service'
 
 interface Student {
+class: any;
   id: number;
   firstName: string;
   lastName: string;

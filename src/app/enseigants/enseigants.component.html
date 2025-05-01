@@ -1,7 +1,4 @@
-<div class="container">
-    <h2>Gestion des Enseigants</h2>
-  
-    <form [formGroup]="enseigantsForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="enseigantsForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Prénom</label>
         <input type="text" class="form-control" formControlName="firstName">
@@ -23,8 +20,8 @@
       </div>
   
       <div class="form-group">
-        <label>Cours</label>
-        <input type="text" class="form-control" formControlName="course">
+        <label>Matiére</label>
+        <input type="text" class="form-control" formControlName="Matiére">
 
       </div>
       <div class="form-group">
@@ -54,15 +51,17 @@
           <th>Nom</th>
           <th>Email</th>
           <th>Date de naissance</th>
+          <th>Matiere</th>
           <th>image</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of enseigants">
+        <tr *ngFor="let enseigant of enseigants">
           <td>{{ enseigants.firstName }}</td>
           <td>{{ enseigants.lastName }}</td>
           <td>{{ enseigants.email }}</td>
           <td>{{ enseigants.dateOfBirth }}</td>
+          <td>{{ enseigants.Matiere}}</td>
           <td>{{enseigants.image}}</td>
           <td>
             <button class="btn btn-warning btn-sm" (click)="enseigants(enseigant)">Modifier</button>
@@ -71,5 +70,4 @@
         </tr>
       </tbody>
     </table>
-  </div>
   

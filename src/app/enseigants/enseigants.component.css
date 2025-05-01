@@ -1,4 +1,19 @@
-/* Style global */
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  mat-drawer {
+    width: 260px;
+  }
+  mat-drawer-container {
+    height: 100%;
+  }
+  
+  mat-drawer {
+    background: grey;
+  }
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
